@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-//convert React Class --> React component
+//class --> component
 const AppComponent = <App/>;  
 
-//pass component into regular DOM
+//inject component into html DOM using React Dom 
 ReactDOM.render(AppComponent,document.getElementById('app'));

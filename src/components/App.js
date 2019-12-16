@@ -42,6 +42,37 @@ class App extends Component {
     });
   }
 
+  add_test = (newTest) =>{
+    newTest.id = Math.random(); 
+    newTest.testname = newTest.name;
+    newTest.testage = newTest.age;
+
+    const new_tests_list = [...this.state.tests_list,newTest];
+
+    this.setState({
+      tests_list: new_tests_list
+    });
+  }
+
+  delete_test =(test_id) => {
+    let new_tests_list = this.state.tests_list.filter((test) => {
+      return test.id != test_id ? true:false;
+    });
+
+    this.setState({
+      tests_list: new_tests_list
+    });
+  }
+
+  componentDidMount(){
+    console.log("component mounted");
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    console.log(prevState);
+    console.log('component updated');
+  }
+
   render(){
     return (  //JSX
       <div>
@@ -55,8 +86,9 @@ class App extends Component {
           <button>Submit</button>
         </form> */}
 
-        <Tests tests_list = {this.state.tests_list}/>
-        <AddTest/>
+        <Tests tests_list = {this.state.tests_list} 
+               delete_test = {this.delete_test}/>
+        <AddTest add_test = {this.add_test}/>
       </div>
     )
   }

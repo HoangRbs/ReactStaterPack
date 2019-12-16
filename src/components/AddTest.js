@@ -9,7 +9,7 @@ class AddTest extends Component {
 
   handleSubmit =(e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.add_test(this.state);
   }
 
   handleChange =(e) => {
