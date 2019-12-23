@@ -29,7 +29,8 @@ module.exports = merge(common,{
   ],
   devServer: { //webpack dev server is gonna build all things for us -> but on virtual "dist" folder -> to adapt changes on the fly
     contentBase: path.join(__dirname, 'dist'),//
-    port: 8080
+    port: 8080,
+    historyApiFallback: true,
   },
   devtool: 'cheap-module-eval-source-map'
 });
